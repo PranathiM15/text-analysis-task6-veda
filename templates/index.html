@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TextLab 06 — Text Analysis</title>
+  <meta name="description" content="Python-powered text analysis web application for Task 6." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark">T6</div>
+        <div>
+          <div class="brand-name">TextLab</div>
+          <div class="brand-sub">PYTHON • TASK 06</div>
+        </div>
+      </div>
+      <div class="status-pill"><span class="pulse"></span> LOCAL ANALYZER</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">AI &amp; ML TRACK / TEXT PROCESSING</p>
+          <h1>Turn a paragraph<br /><span>into readable data.</span></h1>
+          <p class="hero-note">A focused text-analysis workspace built with Python. Count words, inspect characters, measure vowels, and surface repeated words in seconds.</p>
+        </div>
+        <div class="hero-card">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="hero-symbol">TXT</div>
+          <div class="hero-card-label">TASK 06</div>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="panel editor-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">01 / INPUT</p>
+              <h2>Write or paste your text</h2>
+            </div>
+            <div id="charLive" class="mini-counter">0 chars</div>
+          </div>
+
+          <textarea id="textInput" maxlength="100000" placeholder="Paste a paragraph, article excerpt, or your own text here..."></textarea>
+
+          <div class="editor-footer">
+            <div class="sample-note">Tip: punctuation is ignored when words are counted.</div>
+            <div class="actions">
+              <button id="sampleBtn" class="btn btn-ghost" type="button">Load Sample</button>
+              <button id="clearBtn" class="btn btn-ghost" type="button">Clear</button>
+              <button id="analyzeBtn" class="btn btn-primary" type="button">Analyze Text <span>→</span></button>
+            </div>
+          </div>
+          <div id="errorBox" class="error-box" hidden></div>
+        </div>
+
+        <div class="panel insights-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">02 / INSIGHTS</p>
+              <h2>Analysis at a glance</h2>
+            </div>
+            <div id="analysisState" class="state-chip">READY</div>
+          </div>
+
+          <div class="metrics-grid">
+            <article class="metric-card accent-a"><span>Words</span><strong id="wordCount">—</strong><small>split tokens</small></article>
+            <article class="metric-card accent-b"><span>Characters</span><strong id="characterCount">—</strong><small>including spaces</small></article>
+            <article class="metric-card accent-c"><span>Vowels</span><strong id="vowelCount">—</strong><small>a, e, i, o, u</small></article>
+            <article class="metric-card accent-d"><span>Unique Words</span><strong id="uniqueWords">—</strong><small>case-insensitive</small></article>
+          </div>
+
+          <div class="secondary-grid">
+            <div class="info-block">
+              <span class="info-title">CONSONANTS</span>
+              <strong id="consonantCount">—</strong>
+            </div>
+            <div class="info-block">
+              <span class="info-title">LONGEST WORD</span>
+              <strong id="longestWord">—</strong>
+            </div>
+            <div class="info-block">
+              <span class="info-title">REPEATED WORD TYPES</span>
+              <strong id="repeatedTypes">—</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lower-grid">
+        <div class="panel repeated-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">03 / REPETITION</p>
+              <h2>Repeated words</h2>
+            </div>
+            <span class="plain-label">COUNT &gt; 1</span>
+          </div>
+          <div id="repeatedEmpty" class="empty-state">Analyze some text to see repeated words here.</div>
+          <div id="repeatedList" class="word-list" hidden></div>
+        </div>
+
+        <div class="panel top-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">04 / FREQUENCY</p>
+              <h2>Most common words</h2>
+            </div>
+          </div>
+          <div id="topWords" class="frequency-list">
+            <div class="empty-state">Your frequency snapshot will appear after analysis.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="method-strip">
+        <div><strong>Method</strong><span>Python standard library • no notebook required</span></div>
+        <div><strong>Core logic</strong><span>split / len / regex / Counter</span></div>
+        <div><strong>Purpose</strong><span>Foundations for Natural Language Processing</span></div>
+      </section>
+    </main>
+
+    <footer>
+      <span>TextLab 06</span>
+      <span>Built for Veda Technology • Task 6</span>
+    </footer>
+  </div>
+  <script src="/script.js"></script>
+</body>
+</html>
